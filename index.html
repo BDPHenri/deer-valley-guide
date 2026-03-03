@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Guide — Deer Valley Basecamp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{--olive:#928B52;--olive-dk:#7A7448;--cream:#F5F3ED;--beige:#D6D4C0;--wh:#FFF;--ch:#2B2B2B;--dk:#1A1A1A;--gr:#555;--lt:#888;--gold:#B8A455}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Montserrat',sans-serif;color:var(--ch);background:var(--cream);-webkit-font-smoothing:antialiased;font-size:16px}
+    a{color:var(--olive);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Hero - shorter */
+    .hero{background:linear-gradient(180deg,rgba(28,28,28,.5),rgba(28,28,28,.3) 50%,rgba(28,28,28,.55)),url('./hero.jpg') center 40%/cover;text-align:center;padding:3rem 2rem;min-height:40vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+    .hero-logo{width:100px;height:100px;background:rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;padding:8px}
+    .hero-logo img{width:100%;height:100%;object-fit:contain}
+    .hero-label{font-size:.6rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:.6rem}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;letter-spacing:5px;text-transform:uppercase;color:#fff;line-height:1.2}
+    .hero-div{width:40px;height:1px;background:var(--gold);margin:.5rem auto}
+    .hero-sub{font-size:.7rem;color:rgba(255,255,255,.9);letter-spacing:2px;text-transform:uppercase}
+    .hero-tag{font-size:.72rem;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-top:.75rem;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+
+    /* Essentials bar */
+    .ess{background:var(--olive);display:grid;grid-template-columns:repeat(4,1fr)}
+    .ess-i{padding:.85rem .5rem;text-align:center;border-right:.5px solid rgba(255,255,255,.15)}
+    .ess-i:last-child{border:none}
+    .ess-l{font-size:.55rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.2rem}
+    .ess-v{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:#fff}
+
+    /* Main content — wide 2-col layout */
+    .main{max-width:1000px;margin:0 auto;padding:1.5rem}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
+
+    /* Card */
+    .card{background:var(--wh);padding:1.4rem 1.5rem;border-radius:2px}
+    .card-c{background:var(--beige)}
+    .card-d{background:var(--olive-dk);color:#fff}
+    .card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem}
+    .card h3 .tag{font-family:'Montserrat',sans-serif;font-size:.5rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--olive);margin-left:.5rem}
+    .card-d h3 .tag{color:var(--gold)}
+    .card-d h3{color:#fff}
+
+    /* Amenity list */
+    .am-row{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid var(--beige)}
+    .am-row:last-child{border:none}
+    .am-left{display:flex;align-items:center;gap:.6rem}
+    .am-left .ic{font-size:1.1rem}
+    .am-left strong{font-size:.9rem;font-weight:500}
+    .am-right{font-size:.75rem;color:var(--lt);font-weight:300;text-align:right}
+
+    /* List row */
+    .lr{display:flex;justify-content:space-between;align-items:baseline;padding:.3rem 0;font-size:.9rem;font-weight:300}
+    .lr .t{font-size:.65rem;font-weight:500;letter-spacing:1px;color:var(--olive);text-transform:uppercase;white-space:nowrap;margin-left:.5rem}
+    .lb{font-size:.55rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--olive);margin:.75rem 0 .25rem;padding-bottom:.2rem;border-bottom:1px solid var(--beige)}
+    .card-d .lb{color:var(--gold);border-color:rgba(255,255,255,.1)}
+
+    /* Restaurant row */
+    .rr{display:flex;justify-content:space-between;align-items:baseline;padding:.4rem 0;border-bottom:1px solid var(--beige)}
+    .rr:last-child{border:none}
+    .rn{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600}
+    .rn a{color:var(--ch)}
+    .rn a:hover{color:var(--olive)}
+    .rd{font-size:.7rem;color:var(--lt);font-weight:300;margin-left:.25rem}
+    .rt{font-size:.6rem;font-weight:500;letter-spacing:1px;color:var(--olive);text-transform:uppercase;white-space:nowrap;margin-left:.75rem}
+
+    /* Simple list */
+    .sl{list-style:none;padding:0}
+    .sl li{padding:.3rem 0;font-size:.9rem;font-weight:300;display:flex;align-items:center;gap:.5rem}
+    .sl li::before{content:'';width:6px;height:1px;background:var(--gold);flex-shrink:0}
+
+    /* Rules compact */
+    .ru div{padding:.3rem 0;font-size:.88rem;font-weight:300;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:.5rem}
+    .ru div::before{content:'';width:6px;height:1px;background:var(--gold);flex-shrink:0}
+
+    /* Checkout */
+    .co{list-style:none;padding:0;counter-reset:co;columns:2;column-gap:1.5rem}
+    .co li{padding:.3rem 0;font-size:.9rem;font-weight:300;display:flex;align-items:center;gap:.4rem;counter-increment:co;break-inside:avoid}
+    .co li::before{content:counter(co,decimal-leading-zero);font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:400;color:var(--olive);width:18px;flex-shrink:0}
+
+    /* Emergency */
+    .er{display:flex;justify-content:space-between;align-items:baseline;padding:.25rem 0}
+    .el{font-size:.6rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive)}
+    .ev{font-size:.9rem;font-weight:300}
+
+    /* Footer */
+    .foot-logo{width:70px;height:70px;background:rgba(255,255,255,.15);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;padding:6px;margin-bottom:.75rem}
+    .foot-logo img{width:100%;height:100%;object-fit:contain;opacity:.85}
+    .foot{background:var(--olive-dk);text-align:center;padding:1.5rem 1.25rem}
+    .foot-s{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--gold);margin-bottom:.25rem}
+    .foot-b{font-size:.55rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+    .foot-ig{font-size:.65rem;color:rgba(255,255,255,.4);margin-top:.4rem}
+    .foot-ig a{color:var(--gold);text-decoration:none}
+
+    /* Full-width card */
+    .full{grid-column:1/-1}
+
+    @media(max-width:700px){
+      .grid2,.grid3{grid-template-columns:1fr}
+      .ess{grid-template-columns:repeat(2,1fr)}
+      .ess-i{border-bottom:.5px solid rgba(255,255,255,.06)}
+      .co{columns:1}
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-logo"><img src="./logo.png" alt="Deer Valley Basecamp"></div>
+  <div class="hero-label">Guest Guide</div>
+  <h1>Deer Valley Basecamp</h1>
+  <div class="hero-div"></div>
+  <div class="hero-sub">Heber City · Utah</div>
+  <div class="hero-tag">Mountain Views · Hot Tub · Sauna · Arcade · 8 Min to Ski</div>
+</div>
+
+<div class="ess">
+  <div class="ess-i"><div class="ess-l">WiFi</div><div class="ess-v">DeerValleyBasecamp</div></div>
+  <div class="ess-i"><div class="ess-l">Password</div><div class="ess-v">MountainView</div></div>
+  <div class="ess-i"><div class="ess-l">Check-in</div><div class="ess-v">4:00 PM</div></div>
+  <div class="ess-i"><div class="ess-l">Checkout</div><div class="ess-v">11:00 AM</div></div>
+</div>
+
+<div class="main">
+
+  <!-- Row 1: Amenities + Adventures -->
+  <div class="grid2">
+    <div class="card">
+      <h3>Your Amenities <span class="tag">Experience</span></h3>
+      <div class="am-row"><div class="am-left"><span class="ic">♨️</span><strong>Hot Tub</strong></div><div class="am-right">Mountain-view deck</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🧖</span><strong>Infrared Sauna</strong></div><div class="am-right">Lower level</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🕹️</span><strong>Arcade & Games</strong></div><div class="am-right">Pac-Man · NBA Jam · Ping Pong</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🎬</span><strong>Private Theater</strong></div><div class="am-right">85" · Surround sound</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🔭</span><strong>Telescope</strong></div><div class="am-right">Upper deck · Stargazing</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🍿</span><strong>Popcorn Machine</strong></div><div class="am-right">Theater room</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🎵</span><strong>Vinyl Record Player</strong></div><div class="am-right">Curated collection</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🎿</span><strong>Ski Lounge</strong></div><div class="am-right">Heated boot warmers</div></div>
+    </div>
+
+    <div class="card card-c">
+      <h3>Nearby <span class="tag">Year-Round</span></h3>
+      <div class="lb">All Seasons</div>
+      <div class="am-row"><div class="am-left"><span class="ic">🚂</span><strong>Heber Valley Railroad</strong></div><div class="am-right">Themed trains · 5 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">♨️</span><strong>Homestead Crater</strong></div><div class="am-right">Hot spring · 10 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🏔️</span><strong>Wasatch Trails</strong></div><div class="am-right">Hike & bike · 5 min</div></div>
+      <div class="lb">Winter (Nov–Apr)</div>
+      <div class="am-row"><div class="am-left"><span class="ic">🎿</span><strong>Deer Valley Resort</strong></div><div class="am-right">8 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">⛷️</span><strong>Park City Mountain</strong></div><div class="am-right">20 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🛷</span><strong>Soldier Hollow</strong></div><div class="am-right">Tubing & XC ski · 15 min</div></div>
+      <div class="lb">Summer (May–Oct)</div>
+      <div class="am-row"><div class="am-left"><span class="ic">🚣</span><strong>Jordanelle State Park</strong></div><div class="am-right">Kayak · SUP · 10 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🎣</span><strong>Provo River</strong></div><div class="am-right">Fly fishing · 5 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">⛳</span><strong>Wasatch Mountain Golf</strong></div><div class="am-right">36 holes · 10 min</div></div>
+    </div>
+  </div>
+
+  <!-- Row 2: Restaurants (full width) -->
+  <div style="margin-top:1.5rem">
+    <div class="card">
+      <h3>Local Dining <span class="tag">Curated</span></h3>
+      <div class="grid3" style="margin-top:.5rem">
+        <div>
+          <div class="rr"><div><span class="rn"><a href="https://jadescafe.com" target="_blank">Jade's Cafe</a></span><span class="rd">Brunch</span></div><span class="rt">5 min</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://back40utah.com" target="_blank">Back 40 Ranch House</a></span><span class="rd">Farm-to-table</span></div><span class="rt">5 min</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://tacoselguerout.com" target="_blank">Tacos El Guero</a></span><span class="rd">Mexican</span></div><span class="rt">5 min</span></div>
+        </div>
+        <div>
+          <div class="rr"><div><span class="rn"><a href="https://thecafegalleria.com" target="_blank">Café Galleria</a></span><span class="rd">Italian · Midway</span></div><span class="rt">10 min</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://www.midwaymercantile.com" target="_blank">Midway Mercantile</a></span><span class="rd">New American · Midway</span></div><span class="rt">10 min</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://thehivewinery.com" target="_blank">The Hive Winery</a></span><span class="rd">Wine & plates</span></div><span class="rt">10 min</span></div>
+        </div>
+        <div>
+          <div class="rr"><div><span class="rn"><a href="https://flanagansonmain.com" target="_blank">Flanagan's</a></span><span class="rd">Irish pub · Park City</span></div><span class="rt">20 min</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://mainstreetpizzanoodle.com" target="_blank">Main St Pizza & Noodle</a></span><span class="rd">Park City</span></div><span class="rt">20 min</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activities: Rentals + Family + Outdoor -->
+  <div style="margin-top:1.5rem">
+    <div class="card">
+      <h3>Things to Do <span class="tag">Explore</span></h3>
+      <div class="grid3" style="margin-top:.5rem">
+        <div>
+          <div class="lb">🎿 Winter Rentals</div>
+          <div class="rr"><div><span class="rn"><a href="https://www.adventurehaus.com" target="_blank">Adventure Haus</a></span><span class="rd">Ski & snowboard</span></div><span class="rt">Heber</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://www.switchbacksports.com" target="_blank">Switchback Sports</a></span><span class="rd">Ski & bike shop</span></div><span class="rt">Heber</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://www.deervalley.com" target="_blank">Deer Valley Rentals</a></span><span class="rd">On-mountain</span></div><span class="rt">8 min</span></div>
+          <div class="lb">☀️ Summer Rentals</div>
+          <div class="rr"><div><span class="rn"><a href="https://www.adventurehaus.com" target="_blank">Adventure Haus</a></span><span class="rd">Kayak · SUP · Bike</span></div><span class="rt">Heber</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://stateparks.utah.gov/parks/jordanelle" target="_blank">Jordanelle Marina</a></span><span class="rd">Boat · Kayak · SUP rental</span></div><span class="rt">10 min</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://www.switchbacksports.com" target="_blank">Switchback Sports</a></span><span class="rd">Mountain bike rental</span></div><span class="rt">Heber</span></div>
+        </div>
+        <div>
+          <div class="lb">👨‍👩‍👧‍👦 Family Friendly</div>
+          <div class="rr"><div><span class="rn"><a href="https://www.hebervalleyrailroad.com" target="_blank">Heber Valley Railroad</a></span><span class="rd">Scenic & themed trains</span></div><span class="rt">5 min</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://www.soldierhollow.com" target="_blank">Soldier Hollow</a></span><span class="rd">Tubing · XC ski · Biking</span></div><span class="rt">15 min</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://www.icecastles.com/utah" target="_blank">Midway Ice Castles</a></span><span class="rd">Winter only · Stunning!</span></div><span class="rt">10 min</span></div>
+          <div class="rr"><div><span class="rn">Aquatic Center</span><span class="rd">Pools & obstacle course</span></div><span class="rt">5 min</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://www.homesteadresort.com/crater" target="_blank">Homestead Crater</a></span><span class="rd">Hot spring · Snorkeling</span></div><span class="rt">10 min</span></div>
+          <div class="rr"><div><span class="rn">Park City Main Street</span><span class="rd">Shopping · Art · Dining</span></div><span class="rt">20 min</span></div>
+        </div>
+        <div>
+          <div class="lb">🥾 Trails & Hiking</div>
+          <div class="rr"><div><span class="rn"><a href="https://www.alltrails.com/us/utah/heber-city" target="_blank">AllTrails Heber City</a></span><span class="rd">36 trails · All levels</span></div><span class="rt">—</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://www.gohebervalley.com/Trails/" target="_blank">Deer Creek Perimeter</a></span><span class="rd">Easy · Lake views · 15 mi</span></div><span class="rt">10 min</span></div>
+          <div class="rr"><div><span class="rn">Wasatch Mountain SP</span><span class="rd">Hiking · Biking · Camping</span></div><span class="rt">5 min</span></div>
+          <div class="lb">🎣 Fly Fishing</div>
+          <div class="rr"><div><span class="rn"><a href="https://fishheadsflyshop.com" target="_blank">Fish Heads Fly Shop</a></span><span class="rd">Guides · Gear · Provo River</span></div><span class="rt">Heber</span></div>
+          <div class="rr"><div><span class="rn"><a href="https://www.orvis.com/product/rocky-mountain-outfitters-ut/8E7A.html" target="_blank">Rocky Mtn Outfitters</a></span><span class="rd">Orvis guide · Provo River</span></div><span class="rt">Heber</span></div>
+          <div class="rr"><div><span class="rn">Middle Provo River</span><span class="rd">Blue Ribbon trout water</span></div><span class="rt">5 min</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concierge Services -->
+  <div style="margin-top:1.5rem">
+    <div class="card" style="background:linear-gradient(135deg,var(--olive-dk),#5C572E);color:#fff">
+      <h3 style="color:#fff">🛎️ Concierge Services <span class="tag" style="color:var(--gold)">Premium</span></h3>
+      <p style="font-size:.88rem;font-weight:300;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:.75rem">Elevate your stay with Mountain Time Utah, your personal concierge for everything Heber Valley. Services available before or during your visit.</p>
+      <div class="grid3" style="margin-top:.5rem">
+        <div>
+          <div class="am-row" style="border-color:rgba(255,255,255,.1)"><div class="am-left"><span class="ic">🛒</span><strong style="color:#fff">Grocery Stocking</strong></div><div class="am-right" style="color:var(--gold)">Pre-arrival</div></div>
+          <div class="am-row" style="border-color:rgba(255,255,255,.1)"><div class="am-left"><span class="ic">👨‍🍳</span><strong style="color:#fff">Private Chef</strong></div><div class="am-right" style="color:var(--gold)">In-home</div></div>
+        </div>
+        <div>
+          <div class="am-row" style="border-color:rgba(255,255,255,.1)"><div class="am-left"><span class="ic">🚗</span><strong style="color:#fff">Transportation</strong></div><div class="am-right" style="color:var(--gold)">Airport · Resort</div></div>
+          <div class="am-row" style="border-color:rgba(255,255,255,.1)"><div class="am-left"><span class="ic">🗓️</span><strong style="color:#fff">Custom Itinerary</strong></div><div class="am-right" style="color:var(--gold)">Personalized</div></div>
+        </div>
+        <div>
+          <div class="am-row" style="border-color:rgba(255,255,255,.1)"><div class="am-left"><span class="ic">🎿</span><strong style="color:#fff">Ski Valet</strong></div><div class="am-right" style="color:var(--gold)">Rentals · Tickets</div></div>
+          <div class="am-row" style="border-color:rgba(255,255,255,.1)"><div class="am-left"><span class="ic">🎉</span><strong style="color:#fff">Special Events</strong></div><div class="am-right" style="color:var(--gold)">Setup · Planning</div></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.1)">
+        <a href="https://concierge.mountaintimeutah.com/" target="_blank" style="color:var(--gold);font-size:.85rem;font-weight:500;letter-spacing:1px">Book Your Concierge → concierge.mountaintimeutah.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grocery + Essentials -->
+  <div class="grid2" style="margin-top:1.5rem">
+    <div class="card card-c">
+      <h3>Grocery & Essentials <span class="tag">Provisions</span></h3>
+      <div class="am-row"><div class="am-left"><span class="ic">🛒</span><strong>Smith's</strong></div><div class="am-right">5 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🛒</span><strong>Ridley's</strong></div><div class="am-right">5 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">🏬</span><strong>Walmart</strong></div><div class="am-right">10 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">⛽</span><strong>Gas Stations</strong></div><div class="am-right">Chevron & Maverik · 3 min</div></div>
+      <div class="am-row"><div class="am-left"><span class="ic">💊</span><strong>Pharmacy</strong></div><div class="am-right">Smith's Pharmacy · 5 min</div></div>
+    </div>
+    <div class="card card-d">
+      <h3>📖 House Guide <span class="tag">On Arrival</span></h3>
+      <p style="font-size:.88rem;font-weight:300;color:rgba(255,255,255,.8);line-height:1.6;margin-bottom:.75rem">On check-in day, you'll receive our Welcome Book with everything you need: WiFi, house rules, how to use the hot tub, sauna, fireplace, and more.</p>
+      <div class="am-row" style="border-color:rgba(255,255,255,.1)"><div class="am-left"><span class="ic">📞</span><strong style="color:#fff">Local Contact</strong></div><div class="am-right"><a href="tel:+14352227079" style="color:var(--gold)">(435) 222-7079</a></div></div>
+      <div class="am-row" style="border-color:rgba(255,255,255,.1)"><div class="am-left"><span class="ic">🚨</span><strong style="color:#fff">Emergency</strong></div><div class="am-right"><a href="tel:911" style="color:var(--gold)">911</a></div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div class="foot-logo"><img src="./logo.png" alt="Deer Valley Basecamp"></div>
+  <div class="foot-s">Enjoy your stay</div>
+  <div class="foot-b">Deer Valley Basecamp · Heber City, Utah</div>
+  <div class="foot-ig">📷 <a href="https://instagram.com/deervalleybasecamp" target="_blank">@deervalleybasecamp</a></div>
+</div>
+
+</body>
+</html>

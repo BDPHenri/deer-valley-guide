@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deer Valley Basecamp | House Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #383123;
+      --brown-deep: #3d2a1c;
+      --brown-choc: #3f2515;
+      --gold: #897f59;
+      --brown-med: #7a6045;
+      --terra: #996359;
+      --rose: #b69ea2;
+      --copper: #af6730;
+      --caramel: #a46c3c;
+      --cream: #f5f0e8;
+      --cream-light: #faf7f2;
+      --cream-warm: #ede6d8;
+      --white: #ffffff;
+
+      --ink: #241a12;
+      --panel: rgba(250, 247, 242, 0.78);
+      --line: rgba(61, 42, 28, 0.18);
+      --shadow-lg: 0 20px 56px rgba(56, 49, 35, 0.17);
+      --shadow-md: 0 10px 28px rgba(56, 49, 35, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Sora", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 520px at 5% -10%, rgba(175, 103, 48, 0.20), transparent 60%),
+        radial-gradient(780px 420px at 90% 0%, rgba(182, 158, 162, 0.18), transparent 62%),
+        linear-gradient(160deg, var(--cream-light), var(--cream) 45%, var(--cream-warm) 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1200px, calc(100% - 44px));
+      margin: 22px auto 40px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(245, 240, 232, 0.84);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 12px;
+      z-index: 40;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--brown-deep);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(61, 42, 28, 0.25);
+      object-fit: cover;
+      background: var(--cream);
+      padding: 5px;
+    }
+
+    .quick-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .meta-chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(61, 42, 28, 0.24);
+      background: rgba(255, 255, 255, 0.64);
+      font-size: 0.67rem;
+      color: var(--brown-med);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .weather-mini {
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .weather-mini-head {
+      color: var(--brown-med);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.62rem;
+    }
+
+    .hero {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(61, 42, 28, 0.2);
+      box-shadow: var(--shadow-lg);
+      background: linear-gradient(130deg, rgba(61, 42, 28, 0.95), rgba(36, 26, 18, 0.86));
+      color: var(--cream-light);
+      margin-bottom: 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 560px;
+    }
+
+    .hero-copy {
+      padding: 54px clamp(24px, 4vw, 48px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+      max-width: min(760px, 60%);
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(175, 103, 48, 0.35), transparent 68%);
+      right: -120px;
+      bottom: -120px;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      color: #d8c89a;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: "Bodoni Moda", serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      font-weight: 500;
+      margin-bottom: 18px;
+      max-width: 620px;
+    }
+
+    .hero-sub {
+      color: rgba(245, 240, 232, 0.84);
+      max-width: 760px;
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    .stay-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(160px, 1fr));
+      gap: 10px;
+      max-width: 520px;
+    }
+
+    .stay-card {
+      border: 1px solid rgba(237, 230, 216, 0.18);
+      background: rgba(245, 240, 232, 0.07);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+
+    .stay-label {
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #d8c89a;
+      margin-bottom: 6px;
+    }
+
+    .stay-value {
+      font-size: 0.86rem;
+      color: var(--cream-light);
+      word-break: break-word;
+    }
+
+    .hero-photos {
+      display: none;
+    }
+
+    .hero-photos figure {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      min-height: 300px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .hero-photos figure:first-child {
+      min-height: 300px;
+    }
+
+    .hero-photos img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .hero-photos figure:hover img {
+      transform: scale(1.04);
+    }
+
+    .hero-side-info {
+      border: 1px solid rgba(237, 230, 216, 0.2);
+      border-radius: var(--radius-md);
+      background: rgba(245, 240, 232, 0.08);
+      padding: 11px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .hero-side-label {
+      color: #d8c89a;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.6rem;
+    }
+
+    .hero-side-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px dashed rgba(237, 230, 216, 0.2);
+      padding-top: 7px;
+      color: var(--cream-light);
+      font-size: 0.77rem;
+    }
+
+    .hero-side-row:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .hero-right-logo {
+      position: absolute;
+      right: clamp(24px, 5vw, 70px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(250px, 27vw, 360px);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      z-index: 1;
+      pointer-events: none;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(237, 230, 216, 0.85);
+      box-shadow: 0 22px 52px rgba(0, 0, 0, 0.3), inset 0 0 0 10px rgba(245, 240, 232, 0.9);
+    }
+
+    .hero-right-logo img {
+      width: 66%;
+      height: 66%;
+      object-fit: contain;
+      filter: saturate(0.95) contrast(1.02);
+      opacity: 1;
+    }
+
+    .caption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(36, 26, 18, 0.74);
+      color: var(--cream-light);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .guide-nav {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      padding-bottom: 4px;
+    }
+
+    .guide-nav a {
+      text-decoration: none;
+      color: var(--brown-med);
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: 0.25s ease;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.46);
+    }
+
+    .guide-nav a.active,
+    .guide-nav a:hover {
+      background: var(--brown-deep);
+      color: var(--cream-light);
+      border-color: var(--brown-deep);
+    }
+
+    .section {
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      border-radius: var(--radius-xl);
+      background: var(--panel);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-md);
+      margin-top: 22px;
+      padding: clamp(22px, 4vw, 38px);
+      overflow: hidden;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      color: var(--copper);
+      text-transform: uppercase;
+      font-size: 0.67rem;
+      letter-spacing: 0.18em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: "Bodoni Moda", serif;
+      font-size: clamp(1.55rem, 4vw, 2.6rem);
+      line-height: 1.1;
+      color: var(--brown-deep);
+      margin-bottom: 10px;
+    }
+
+    .section-desc {
+      color: var(--brown-med);
+      max-width: 760px;
+      font-size: 0.92rem;
+    }
+
+    .amenities-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .feature-panel {
+      display: none;
+    }
+
+    .feature-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feature-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(36, 26, 18, 0.72), transparent 48%);
+    }
+
+    .panel-text {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 2;
+      color: var(--cream-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .tile {
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.64);
+      min-height: 108px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tile h3 {
+      color: var(--brown-deep);
+      font-size: 0.93rem;
+      margin-bottom: 0;
+    }
+
+    .tile p {
+      color: var(--brown-med);
+      font-size: 0.83rem;
+      line-height: 1.45;
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+
+    .tile-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .tile-link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .tile-guide-link {
+      text-decoration: none;
+      border: 1px solid rgba(61, 42, 28, 0.24);
+      border-radius: 999px;
+      color: var(--brown-deep);
+      background: rgba(245, 240, 232, 0.88);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 9px;
+      transition: 0.22s ease;
+    }
+
+    .tile-guide-link:hover {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      color: var(--cream-light);
+    }
+
+    .list-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .weather-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(110px, 1fr));
+      gap: 8px;
+    }
+
+    .weather-card {
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      border-radius: var(--radius-md);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(245, 240, 232, 0.85));
+      padding: 8px 9px;
+      min-height: 88px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 5px;
+    }
+
+    .weather-day {
+      color: var(--brown-deep);
+      font-weight: 600;
+      font-size: 0.76rem;
+    }
+
+    .weather-code {
+      color: var(--brown-med);
+      font-size: 0.68rem;
+      line-height: 1.35;
+    }
+
+    .weather-temp {
+      color: var(--copper);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .weather-loading {
+      color: var(--brown-med);
+      font-size: 0.74rem;
+      grid-column: 1 / -1;
+      border: 1px dashed rgba(61, 42, 28, 0.22);
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .list-card {
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.66);
+      padding: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .list-card h3 {
+      color: var(--brown-deep);
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+    }
+
+    .list-card p {
+      color: var(--brown-med);
+      font-size: 0.79rem;
+      line-height: 1.4;
+    }
+
+    .maps-link {
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(61, 42, 28, 0.25);
+      color: var(--brown-deep);
+      font-size: 0.72rem;
+      white-space: nowrap;
+      transition: 0.25s ease;
+      background: rgba(245, 240, 232, 0.86);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .maps-link:hover {
+      background: var(--brown-deep);
+      color: var(--cream-light);
+      border-color: var(--brown-deep);
+    }
+
+    .photo-ribbon {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .photo-ribbon figure {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      min-height: 160px;
+    }
+
+    .photo-ribbon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nearby-photo-ribbon {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nearby-photo-ribbon figure {
+      position: relative;
+      min-height: 200px;
+    }
+
+    .nearby-photo-ribbon figcaption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(34, 25, 18, 0.72);
+      color: #f8f4ed;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid rgba(248, 244, 237, 0.28);
+      backdrop-filter: blur(2px);
+    }
+
+    .nearby-photo-credits {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      font-size: 0.68rem;
+      color: rgba(122, 91, 65, 0.9);
+    }
+
+    .nearby-photo-credits a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(122, 91, 65, 0.55);
+    }
+
+    .nearby-photo-credits a:hover {
+      color: var(--brown-deep);
+      border-bottom-color: var(--brown-deep);
+    }
+
+    .dining-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(210px, 1fr));
+      gap: 12px;
+    }
+
+    .dining-card {
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.72), rgba(245, 240, 232, 0.75));
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 148px;
+    }
+
+    .dining-name {
+      color: var(--brown-deep);
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .dining-type {
+      color: var(--brown-med);
+      font-size: 0.8rem;
+      flex-grow: 1;
+    }
+
+    .dining-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+      color: var(--gold);
+      border-top: 1px dashed rgba(61, 42, 28, 0.2);
+      padding-top: 9px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .filter-btn {
+      border: 1px solid rgba(61, 42, 28, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--brown-med);
+      padding: 7px 12px;
+      font-size: 0.71rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: var(--cream-light);
+      background: var(--copper);
+      border-color: var(--copper);
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 11px;
+    }
+
+    .activity-item.hidden {
+      display: none;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tag.winter {
+      color: #365a73;
+      background: rgba(123, 167, 188, 0.24);
+      border-color: rgba(91, 143, 168, 0.4);
+    }
+
+    .tag.family {
+      color: #6f443d;
+      background: rgba(153, 99, 89, 0.20);
+      border-color: rgba(153, 99, 89, 0.38);
+    }
+
+    .tag.trails {
+      color: #44624b;
+      background: rgba(107, 143, 94, 0.22);
+      border-color: rgba(107, 143, 94, 0.4);
+    }
+
+    .tag.water {
+      color: #2f6079;
+      background: rgba(91, 143, 168, 0.22);
+      border-color: rgba(91, 143, 168, 0.38);
+    }
+
+    .concierge {
+      background: linear-gradient(130deg, var(--brown-deep), var(--brown-choc));
+      color: var(--cream-light);
+      border-color: rgba(61, 42, 28, 0.28);
+    }
+
+    .concierge .eyebrow {
+      color: #d7c189;
+    }
+
+    .concierge .section-title,
+    .concierge .section-desc {
+      color: var(--cream-light);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(170px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .service-chip {
+      border: 1px solid rgba(237, 230, 216, 0.26);
+      background: rgba(250, 247, 242, 0.08);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-size: 0.77rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .cta-link {
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 16px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(237, 230, 216, 0.38);
+      color: var(--cream-light);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+      background: rgba(175, 103, 48, 0.2);
+    }
+
+    .cta-link:hover {
+      background: rgba(245, 240, 232, 0.95);
+      color: var(--brown-deep);
+    }
+
+    .essentials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .essential-card {
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.7);
+      padding: 14px;
+    }
+
+    .essential-card h3 {
+      color: var(--brown-deep);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .essential-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px dashed rgba(61, 42, 28, 0.2);
+      color: var(--brown-med);
+      font-size: 0.82rem;
+    }
+
+    .essential-line:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .house-guide {
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      border-radius: var(--radius-md);
+      background: linear-gradient(145deg, rgba(245, 240, 232, 0.9), rgba(237, 230, 216, 0.9));
+      padding: 16px;
+    }
+
+    .house-guide h3 {
+      color: var(--brown-deep);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .house-guide p {
+      color: var(--brown-med);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      max-width: 780px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .contact-box {
+      border: 1px solid rgba(61, 42, 28, 0.2);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.78);
+      padding: 11px;
+    }
+
+    .contact-label {
+      color: var(--brown-med);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.63rem;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      color: var(--brown-deep);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .contact-value a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(61, 42, 28, 0.35);
+    }
+
+    .contact-value a:hover {
+      color: var(--copper);
+      border-bottom-color: var(--copper);
+    }
+
+    footer {
+      margin-top: 24px;
+      border: 1px solid rgba(61, 42, 28, 0.2);
+      border-radius: var(--radius-xl);
+      background: rgba(245, 240, 232, 0.9);
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-left img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      background: var(--white);
+      padding: 7px;
+    }
+
+    .footer-title {
+      color: var(--brown-deep);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-sub {
+      color: var(--brown-med);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .social-link {
+      text-decoration: none;
+      border: 1px solid rgba(61, 42, 28, 0.25);
+      border-radius: 999px;
+      color: var(--brown-deep);
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.76);
+      transition: 0.2s ease;
+    }
+
+    .social-link:hover {
+      background: var(--brown-deep);
+      color: var(--cream-light);
+      border-color: var(--brown-deep);
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .amenities-layout,
+      .list-grid,
+      .activity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+      }
+
+      .weather-grid {
+        grid-template-columns: repeat(3, minmax(110px, 1fr));
+      }
+
+      .hero-right-logo {
+        width: clamp(180px, 34vw, 240px);
+        opacity: 0.6;
+      }
+
+      .dining-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      .shell {
+        width: min(1200px, calc(100% - 22px));
+      }
+
+      .topbar {
+        border-radius: 18px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .quick-meta {
+        justify-content: flex-start;
+      }
+
+      .stay-grid,
+      .essentials-grid,
+      .contact-row,
+      .dining-grid,
+      .service-grid,
+      .photo-ribbon,
+      .weather-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding: 28px 20px;
+      }
+
+      .hero-right-logo {
+        width: 160px;
+        right: 16px;
+        top: auto;
+        bottom: 16px;
+        transform: none;
+        opacity: 0.38;
+      }
+
+      .amenities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      footer {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <img src="assets/logo.png" alt="Deer Valley Basecamp logo">
+        Deer Valley Basecamp · Guest Guide
+      </a>
+      <div class="quick-meta">
+        <span class="meta-chip">Heber City, Utah</span>
+        <span class="meta-chip">Mountain Retreat</span>
+        <span class="meta-chip">8 min to ski</span>
+      </div>
+    </header>
+
+    <div class="weather-mini" id="weather" data-reveal>
+      <p class="weather-mini-head">Heber City · 5-day forecast</p>
+      <div class="weather-grid" id="weather-grid">
+        <p class="weather-loading" id="weather-loading">Loading forecast...</p>
+      </div>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div>
+            <p class="hero-eyebrow">Guest Guide</p>
+            <h1>Deer Valley<br>Basecamp</h1>
+            <p class="hero-sub">Use this page as your quick stay manual: house essentials, nearby spots, dining picks, activities, concierge and emergency contacts.</p>
+          </div>
+
+          <div class="stay-grid">
+            <div class="stay-card">
+              <p class="stay-label">WiFi</p>
+              <p class="stay-value">DeerValleyBasecamp</p>
+            </div>
+            <div class="stay-card">
+              <p class="stay-label">Password</p>
+              <p class="stay-value">MountainView</p>
+            </div>
+            <div class="stay-card">
+              <p class="stay-label">Check-in</p>
+              <p class="stay-value">4:00 PM</p>
+            </div>
+            <div class="stay-card">
+              <p class="stay-label">Checkout</p>
+              <p class="stay-value">11:00 AM</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="hero-right-logo" aria-hidden="true">
+        <img src="assets/logo.png" alt="">
+      </div>
+    </section>
+
+    <nav class="guide-nav" aria-label="Guide Sections">
+      <a href="#amenities" class="active">Amenities</a>
+      <a href="#nearby">Nearby</a>
+      <a href="#dining">Dining</a>
+      <a href="#activities">Activities</a>
+      <a href="#concierge">Concierge</a>
+      <a href="#essentials">Essentials</a>
+    </nav>
+
+    <section id="amenities" class="section" data-reveal>
+      <div class="section-head">
+        <p class="eyebrow">Your Property</p>
+        <h2 class="section-title">Amenities & Experiences</h2>
+        <p class="section-desc">Use os links dentro dos cards para abrir manuais, controles e tutoriais.</p>
+      </div>
+
+      <div class="amenities-layout">
+        <div class="amenities-grid">
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>♨️ Hot Tub</h3>
+            </div>
+            <p>Max 104°F recommended · open year-round</p>
+            <div class="tile-link-list">
+              <a class="tile-guide-link" href="https://www.youtube.com/watch?v=h1W7lILA6bo" target="_blank" rel="noopener noreferrer">How to use</a>
+            </div>
+          </article>
+
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>📺 Sauna (Infrared)</h3>
+            </div>
+            <p>Barrel sauna · towels provided</p>
+            <div class="tile-link-list">
+              <a class="tile-guide-link" href="https://www.youtube.com/watch?v=96LCt7XuYuc" target="_blank" rel="noopener noreferrer">How to use</a>
+            </div>
+          </article>
+
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>🔥 Fireplace (Modern Flames LPS-56)</h3>
+            </div>
+            <p>Linear electric fireplace with remote control</p>
+            <div class="tile-link-list">
+              <a class="tile-guide-link" href="https://www.modernflamestore.com/pdf/master/pdfs/modern_flames/linear_fireplaces/landscape_pro/slim/lps-56/2024/ss/lps.pdf" target="_blank" rel="noopener noreferrer">Manual</a>
+              <a class="tile-guide-link" href="https://www.modernflamestore.com/pdf/master/pdfs/modern_flames/linear_fireplaces/landscape_pro/slim/lps-56/2024/controls/remote/remote.pdf" target="_blank" rel="noopener noreferrer">Remote control</a>
+            </div>
+          </article>
+
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>🕹️ Arcade & Games</h3>
+            </div>
+            <p>Multi arcade · ping pong</p>
+          </article>
+
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>🎬 Private Theater</h3>
+            </div>
+            <p>80&quot; surround sound</p>
+          </article>
+
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>🔭 Telescópio (Gskyer)</h3>
+            </div>
+            <p>Gskyer telescope · incredible stargazing</p>
+            <div class="tile-link-list">
+              <a class="tile-guide-link" href="https://productreviewgpt.com/manual/B081RJ8DW1" target="_blank" rel="noopener noreferrer">How to use</a>
+            </div>
+          </article>
+
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>🍿 Popcorn Machine</h3>
+            </div>
+            <p>Theater style · included</p>
+          </article>
+
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>🎵 JBL Spinner BT (Vitrola)</h3>
+            </div>
+            <p>Curated collection included</p>
+            <div class="tile-link-list">
+              <a class="tile-guide-link" href="https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw5bac91aa/pdfs/JBL_Spinner_BT_QSG_7_languages-20230817.pdf" target="_blank" rel="noopener noreferrer">Quick Start Guide</a>
+            </div>
+          </article>
+
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>🍖 BBQ Grill (Weber Spirit II)</h3>
+            </div>
+            <p>Outdoor gas grill on deck</p>
+            <div class="tile-link-list">
+              <a class="tile-guide-link" href="https://www.youtube.com/watch?v=Cqt-t_9KJyM" target="_blank" rel="noopener noreferrer">How to start</a>
+            </div>
+          </article>
+
+          <article class="tile" data-reveal>
+            <div class="tile-title-row">
+              <h3>🎿 Ski Lounge</h3>
+            </div>
+            <p>Heated boot dryers · equipment storage</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="photo-ribbon" data-reveal>
+        <figure><img src="assets/outdoor-hottub.jpg" alt="Hot tub area"></figure>
+        <figure><img src="assets/theater-2.jpg" alt="Theater room"></figure>
+        <figure><img src="assets/gameroom-1.jpg" alt="Game room"></figure>
+      </div>
+
+    </section>
+
+    <section id="nearby" class="section" data-reveal>
+      <div class="section-head">
+        <p class="eyebrow">Explore</p>
+        <h2 class="section-title">Nearby Attractions</h2>
+        <p class="section-desc">From world-class ski resorts to serene state parks, adventure is minutes away.</p>
+      </div>
+
+      <div class="list-grid">
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Heber Valley Railroad</h3>
+            <p>Scenic heritage train rides</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Heber+Valley+Railroad+Heber+City+UT" target="_blank" rel="noopener noreferrer">7 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Homestead Crater</h3>
+            <p>Natural hot spring · snorkeling</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Homestead+Crater+Midway+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Wasatch Trails</h3>
+            <p>Hiking & mountain biking</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Wasatch+Mountain+State+Park+UT" target="_blank" rel="noopener noreferrer">5 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Deer Valley Resort</h3>
+            <p>World-class skiing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Deer+Valley+Resort+Park+City+UT" target="_blank" rel="noopener noreferrer">15 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Park City Mountain</h3>
+            <p>Largest ski resort in US</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Park+City+Mountain+Resort+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Soldier Hollow</h3>
+            <p>Nordic skiing · tubing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Soldier+Hollow+Nordic+Center+Midway+UT" target="_blank" rel="noopener noreferrer">12 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Jordanelle State Park</h3>
+            <p>Boating · paddleboard · beach</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Jordanelle+State+Park+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Provo River</h3>
+            <p>World-class fly fishing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Provo+River+Heber+City+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Wasatch Mountain Golf</h3>
+            <p>36 holes · mountain views</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Wasatch+Mountain+Golf+Course+Midway+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+      </div>
+
+      <div class="photo-ribbon nearby-photo-ribbon" data-reveal>
+        <figure>
+          <img src="assets/nearby-heber-railroad.jpg" alt="Heber Valley Railroad train crossing the valley">
+          <figcaption>Heber Valley Railroad</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/nearby-jordanelle-local.jpeg" alt="Jordanelle reservoir winter mountain view">
+          <figcaption>Jordanelle Reservoir</figcaption>
+        </figure>
+      </div>
+      <p class="nearby-photo-credits" data-reveal>
+        <a href="https://commons.wikimedia.org/wiki/File:Heber_Valley_Railroad_North_Pole_Express.jpg" target="_blank" rel="noopener noreferrer">Heber Valley Railroad: Ttak (CC BY-SA 4.0)</a>
+      </p>
+
+    </section>
+
+    <section id="dining" class="section" data-reveal>
+      <div class="section-head">
+        <p class="eyebrow">Curated</p>
+        <h2 class="section-title">Local Dining</h2>
+        <p class="section-desc">Our hand-picked favorites, from casual bites to elevated dining experiences.</p>
+      </div>
+
+      <div class="dining-grid">
+        <article class="dining-card" data-reveal>
+          <p class="dining-name">Jade's Cafe</p>
+          <p class="dining-type">Cafe & Brunch</p>
+          <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Jades+Cafe+Heber+City+UT" target="_blank" rel="noopener noreferrer">5 min ↗</a></div>
+        </article>
+        <article class="dining-card" data-reveal>
+          <p class="dining-name">Café Galleria</p>
+          <p class="dining-type">Cafe</p>
+          <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Cafe+Galleria+Heber+City+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a></div>
+        </article>
+        <article class="dining-card" data-reveal>
+          <p class="dining-name">Flanagan's</p>
+          <p class="dining-type">Irish Pub & Grill</p>
+          <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Flanagans+on+Main+438+Main+St+Park+City+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a></div>
+        </article>
+        <article class="dining-card" data-reveal>
+          <p class="dining-name">Riverhorse on Main</p>
+          <p class="dining-type">New American · Upscale · Park City</p>
+          <div class="dining-meta"><span>$$$$</span><a class="maps-link" href="https://maps.google.com/?q=Riverhorse+on+Main+540+Main+St+Park+City+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a></div>
+        </article>
+        <article class="dining-card" data-reveal>
+          <p class="dining-name">Back 40 Ranch House</p>
+          <p class="dining-type">Steakhouse</p>
+          <div class="dining-meta"><span>$$$</span><a class="maps-link" href="https://maps.google.com/?q=Back+40+Ranch+House+Heber+City+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a></div>
+        </article>
+        <article class="dining-card" data-reveal>
+          <p class="dining-name">Midway Mercantile</p>
+          <p class="dining-type">Market & Eatery</p>
+          <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Midway+Mercantile+Midway+UT" target="_blank" rel="noopener noreferrer">12 min ↗</a></div>
+        </article>
+        <article class="dining-card" data-reveal>
+          <p class="dining-name">Main St Pizza & Noodle</p>
+          <p class="dining-type">Pizza & Pasta</p>
+          <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Main+Street+Pizza+Noodle+Park+City+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a></div>
+        </article>
+        <article class="dining-card" data-reveal>
+          <p class="dining-name">Tacos El Cuero</p>
+          <p class="dining-type">Mexican</p>
+          <div class="dining-meta"><span>$</span><a class="maps-link" href="https://maps.google.com/?q=Tacos+El+Cuero+Heber+City+UT" target="_blank" rel="noopener noreferrer">5 min ↗</a></div>
+        </article>
+        <article class="dining-card" data-reveal>
+          <p class="dining-name">Hidden Ace*</p>
+          <p class="dining-type">Speakeasy · Cocktails · Live Music · Adults only (21+)</p>
+          <div class="dining-meta"><span>$$$</span><a class="maps-link" href="https://maps.google.com/?q=Grand+Hyatt+Deer+Valley+Heber+City+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a></div>
+        </article>
+      </div>
+
+    </section>
+
+    <section id="activities" class="section" data-reveal>
+      <div class="section-head">
+        <p class="eyebrow">Explore</p>
+        <h2 class="section-title">Things to Do</h2>
+      </div>
+
+      <div class="filter-row" role="tablist" aria-label="Activity categories">
+        <button class="filter-btn active" type="button" data-filter="all">All</button>
+        <button class="filter-btn" type="button" data-filter="winter">Winter</button>
+        <button class="filter-btn" type="button" data-filter="family">Family</button>
+        <button class="filter-btn" type="button" data-filter="trails">Trails & Hiking</button>
+        <button class="filter-btn" type="button" data-filter="water">Water & Fishing</button>
+      </div>
+
+      <div class="activity-grid" id="activity-list">
+        <article class="list-card activity-item" data-cat="winter" data-reveal>
+          <div>
+            <span class="tag winter">Winter</span>
+            <h3>Adventure Haus</h3>
+            <p>Ski & snowboard rentals</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Adventure+Haus+Heber+City+UT" target="_blank" rel="noopener noreferrer">5 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="winter" data-reveal>
+          <div>
+            <span class="tag winter">Winter</span>
+            <h3>Switchback Sports</h3>
+            <p>Premium ski rentals</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Switchback+Sports+Heber+City+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="winter" data-reveal>
+          <div>
+            <span class="tag winter">Winter</span>
+            <h3>Deer Valley Rentals</h3>
+            <p>Slopeside equipment</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Deer+Valley+Resort+Rentals+Park+City+UT" target="_blank" rel="noopener noreferrer">15 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="winter" data-reveal>
+          <div>
+            <span class="tag winter">Winter</span>
+            <h3>Soldier Hollow</h3>
+            <p>Nordic skiing & tubing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Soldier+Hollow+Nordic+Center+Midway+UT" target="_blank" rel="noopener noreferrer">12 min ↗</a>
+        </article>
+
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Heber Valley Railroad</h3>
+            <p>Scenic heritage train</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Heber+Valley+Railroad+Heber+City+UT" target="_blank" rel="noopener noreferrer">7 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Midway Ice Castles</h3>
+            <p>Seasonal winter attraction</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Ice+Castles+Midway+UT" target="_blank" rel="noopener noreferrer">12 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Aquatic Center</h3>
+            <p>Indoor pool & slides</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Wasatch+County+Aquatic+Center+Heber+City+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Homestead Crater</h3>
+            <p>Natural hot spring</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Homestead+Crater+Midway+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Park City Main Street</h3>
+            <p>Shopping & galleries</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Main+Street+Park+City+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Heber Valley Artisan Cheese</h3>
+            <p>Cheese tastings & farm tours</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Heber+Valley+Artisan+Cheese+Midway+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+
+        <article class="list-card activity-item" data-cat="trails" data-reveal>
+          <div>
+            <span class="tag trails">Trails</span>
+            <h3>AllTrails Heber City</h3>
+            <p>50+ local trails</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Heber+City+trails+UT" target="_blank" rel="noopener noreferrer">Various ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="trails" data-reveal>
+          <div>
+            <span class="tag trails">Trails</span>
+            <h3>Deer Creek Perimeter</h3>
+            <p>Scenic lakeside trail</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Deer+Creek+State+Park+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="trails" data-reveal>
+          <div>
+            <span class="tag trails">Trails</span>
+            <h3>Wasatch Mountain SP</h3>
+            <p>Hiking & camping</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Wasatch+Mountain+State+Park+UT" target="_blank" rel="noopener noreferrer">15 min ↗</a>
+        </article>
+
+        <article class="list-card activity-item" data-cat="water" data-reveal>
+          <div>
+            <span class="tag water">Water</span>
+            <h3>Jordanelle Marina</h3>
+            <p>Boat & kayak rentals</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Jordanelle+State+Park+Marina+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="water" data-reveal>
+          <div>
+            <span class="tag water">Water</span>
+            <h3>Fish Heads Fly Shop</h3>
+            <p>Guided fly fishing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Fish+Heads+Fly+Shop+Heber+City+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="water" data-reveal>
+          <div>
+            <span class="tag water">Water</span>
+            <h3>Rocky Mtn Outfitters</h3>
+            <p>Fishing & outdoor gear</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Rocky+Mountain+Outfitters+Heber+City+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="water" data-reveal>
+          <div>
+            <span class="tag water">Water</span>
+            <h3>Middle Provo River</h3>
+            <p>Blue ribbon trout water</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Middle+Provo+River+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="concierge" class="section concierge" data-reveal>
+      <div class="section-head">
+        <p class="eyebrow">Premium</p>
+        <h2 class="section-title">Concierge Services</h2>
+        <p class="section-desc">Elevate your stay with Mountain Time Utah, your personal concierge for everything Heber Valley. Services available before or during your visit.</p>
+      </div>
+
+      <div class="service-grid" data-reveal>
+        <div class="service-chip">Grocery Stocking</div>
+        <div class="service-chip">Transportation</div>
+        <div class="service-chip">Ski Valet</div>
+        <div class="service-chip">Private Chef</div>
+        <div class="service-chip">Custom Itinerary</div>
+        <div class="service-chip">Special Events</div>
+      </div>
+
+      <a class="cta-link" href="https://concierge.mountaintimeutah.com/" target="_blank" rel="noopener noreferrer">Book Your Concierge →</a>
+    </section>
+
+    <section id="essentials" class="section" data-reveal>
+      <div class="section-head">
+        <p class="eyebrow">Practical</p>
+        <h2 class="section-title">Grocery & Essentials</h2>
+      </div>
+
+      <div class="essentials-grid">
+        <article class="essential-card" data-reveal>
+          <h3>Grocery</h3>
+          <div class="essential-line"><span>Smith's</span><span>5 min</span></div>
+          <div class="essential-line"><span>Ridley's</span><span>7 min</span></div>
+          <div class="essential-line"><span>Walmart</span><span>10 min</span></div>
+        </article>
+
+        <article class="essential-card" data-reveal>
+          <h3>Services</h3>
+          <div class="essential-line"><span>Gas Stations</span><span>Chevron & Maverik · 5 min</span></div>
+          <div class="essential-line"><span>Pharmacy</span><span>Walgreens · 8 min</span></div>
+        </article>
+      </div>
+
+      <div class="house-guide" data-reveal>
+        <h3>📞 Emergência & Contatos</h3>
+        <p>For urgent help, call the local contacts below. In life-threatening emergencies, dial 911 first.</p>
+
+        <div class="contact-row">
+          <div class="contact-box">
+            <p class="contact-label">Vivian</p>
+            <p class="contact-value"><a href="tel:+14352227079">+1 (435) 222-7079</a></p>
+          </div>
+          <div class="contact-box">
+            <p class="contact-label">Heber City Police</p>
+            <p class="contact-value"><a href="tel:+14356541098">(435) 654-1098</a></p>
+          </div>
+          <div class="contact-box">
+            <p class="contact-label">Fire/EMS</p>
+            <p class="contact-value"><a href="tel:+14356541411">(435) 654-1411</a></p>
+          </div>
+          <div class="contact-box">
+            <p class="contact-label">Poison Control</p>
+            <p class="contact-value"><a href="tel:+14359409636">(435) 940-9636</a></p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer data-reveal>
+      <div class="footer-left">
+        <img src="assets/logo.png" alt="Deer Valley Basecamp logo">
+        <div>
+          <p class="footer-title">Deer Valley Basecamp</p>
+          <p class="footer-sub">Heber City, Utah · Mountain Retreat</p>
+        </div>
+      </div>
+      <a class="social-link" href="https://instagram.com/deervalleybasecamp" target="_blank" rel="noopener noreferrer">@deervalleybasecamp</a>
+    </footer>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const activityItems = document.querySelectorAll(".activity-item");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((b) => b.classList.remove("active"));
+        button.classList.add("active");
+
+        activityItems.forEach((item) => {
+          const shouldShow = filter === "all" || item.dataset.cat === filter;
+          item.classList.toggle("hidden", !shouldShow);
+        });
+      });
+    });
+
+    const navLinks = document.querySelectorAll(".guide-nav a");
+    const sections = document.querySelectorAll("section[id]");
+
+    const setActiveLink = () => {
+      let currentId = sections[0]?.id;
+      sections.forEach((section) => {
+        const top = section.getBoundingClientRect().top;
+        if (top <= 160) currentId = section.id;
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
+      });
+    };
+
+    window.addEventListener("scroll", setActiveLink, { passive: true });
+    setActiveLink();
+
+    const weatherGrid = document.getElementById("weather-grid");
+    const weatherLoading = document.getElementById("weather-loading");
+
+    const weatherCodeLabel = (code) => {
+      const map = {
+        0: "Clear sky",
+        1: "Mostly clear",
+        2: "Partly cloudy",
+        3: "Overcast",
+        45: "Fog",
+        48: "Rime fog",
+        51: "Light drizzle",
+        53: "Drizzle",
+        55: "Heavy drizzle",
+        61: "Light rain",
+        63: "Rain",
+        65: "Heavy rain",
+        71: "Light snow",
+        73: "Snow",
+        75: "Heavy snow",
+        77: "Snow grains",
+        80: "Rain showers",
+        81: "Heavy showers",
+        82: "Violent showers",
+        85: "Snow showers",
+        86: "Heavy snow showers",
+        95: "Thunderstorm"
+      };
+      return map[code] || "Variable weather";
+    };
+
+    const formatWeekday = (isoDate) => {
+      const date = new Date(isoDate + "T12:00:00");
+      return date.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+    };
+
+    const renderWeather = (daily) => {
+      const codes = daily.weathercode || daily.weather_code || [];
+      weatherGrid.innerHTML = "";
+
+      daily.time.forEach((day, index) => {
+        const max = Math.round(daily.temperature_2m_max[index]);
+        const min = Math.round(daily.temperature_2m_min[index]);
+        const code = codes[index];
+
+        const card = document.createElement("article");
+        card.className = "weather-card";
+        card.innerHTML = `
+          <p class="weather-day">${formatWeekday(day)}</p>
+          <p class="weather-code">${weatherCodeLabel(code)}</p>
+          <p class="weather-temp">${max}&deg;F / ${min}&deg;F</p>
+        `;
+        weatherGrid.appendChild(card);
+      });
+    };
+
+    const loadWeather = async () => {
+      try {
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=40.5070&longitude=-111.4133&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FDenver&forecast_days=5";
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Weather API unavailable");
+        const data = await response.json();
+        if (!data?.daily?.time?.length) throw new Error("No forecast data");
+        renderWeather(data.daily);
+      } catch (error) {
+        if (weatherLoading) {
+          weatherLoading.textContent = "Forecast unavailable right now. You can check Weather.com for Heber City, UT.";
+        } else {
+          const fallback = document.createElement("p");
+          fallback.className = "weather-loading";
+          fallback.textContent = "Forecast unavailable right now. You can check Weather.com for Heber City, UT.";
+          weatherGrid.appendChild(fallback);
+        }
+      }
+    };
+
+    loadWeather();
+  </script>
+</body>
+</html>
